@@ -4,6 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 export default function Complaint() {
   const [formData, setFormData] = useState({
     name: "",
+    studentId: "",
     roomNo: "",
     complaintCategory: "",
     complaintType: "",
@@ -41,7 +42,7 @@ export default function Complaint() {
     e.preventDefault();
     toast.success("Complaint Submitted Successfully!");
     console.log("Complaint Data:", formData);
-    setFormData({ name: "", roomNo: "", complaintCategory: "", complaintType: "", description: "", file: null });
+    setFormData({ name: "", studentId: "", roomNo: "", complaintCategory: "", complaintType: "", description: "", file: null });
   };
 
   return (
@@ -56,6 +57,17 @@ export default function Complaint() {
               type="text"
               name="name"
               value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label className="block font-medium">Student Id</label>
+            <input
+              type="text"
+              name="studentId"
+              value={formData.studentId}
               onChange={handleChange}
               required
               className="w-full p-2 border rounded"
